@@ -38,5 +38,4 @@ jobs:
           DD_BOT_SECRET: ${{secrets.DD_BOT_SECRET}}
           DD_BOT_TOKEN: ${{secrets.DD_BOT_TOKEN}}
           TOKEN: ${{secrets.TOKEN}}
-          ACCOMMODATION: ${{secrets.ACCOMMODATION}}
         run: python main.py
