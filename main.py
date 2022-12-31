@@ -52,6 +52,7 @@ class report:
             login_button.click()
             time.sleep(1)
         except Exception as e:
+            print('failed in login()')
             print(e)
             return False
         else:
@@ -79,6 +80,7 @@ class report:
                 '/html/body/div[3]/div[3]/button[2]')
             confirm_button.click()
         except Exception as e:
+            print('failed in do()')
             logging(e)
             return False
         else:
