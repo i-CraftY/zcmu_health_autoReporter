@@ -42,11 +42,11 @@ class report:
                 '/html/body/frame-options/div/div/div[2]/div/div/div[3]/ul/li[3]/a')
             ids_button.click()
             uername_input = self.__get_element_by_xpath(
-                '/html/body/div[1]/div[4]/div/form/table/tbody/tr[1]/td/input[1]')
+                '//*[@id="username"]')
             psw_input = self.__get_element_by_xpath(
-                '/html/body/div[1]/div[4]/div/form/table/tbody/tr[2]/td/input[1]')
+                '//*[@id="password"]')
             login_button = self.__get_element_by_xpath(
-                '/html/body/div[1]/div[4]/div/form/table/tbody/tr[4]/td/input')
+                '//*[@id="fm1"]/div[5]/div/input[6]')
             uername_input.send_keys(username)
             psw_input.send_keys(password)
             login_button.click()
