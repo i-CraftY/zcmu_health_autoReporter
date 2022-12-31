@@ -59,40 +59,18 @@ class report:
 
     def do(self) -> bool:
         try:
-            js = ''' iduo.http.parseDataSource("SELECT_XSJKDK$" + iduo.user.Sys_UserId).then(data => {
-        if (data.length > 0) {
-        iduo.data.setUIValue('PHONE', data[0].PHONE);
-        iduo.data.setUIValue('JTZZ', data[0].JTZZ);
-        iduo.data.setUIValue('XXDZ', data[0].XXDZ);
-        iduo.data.setUIValue('MQJZDZ', data[0].MQJZDZ);
-        iduo.data.setUIValue('MQJZDZGD', data[0].MQJZDZGD);
-        iduo.data.setUIValue('SFLX', data[0].SFLX);
-        iduo.data.setUIValue('JJLXRXM', data[0].JJLXRXM);
-        iduo.data.setUIValue('JJLXRSJHM', data[0].JJLXRSJHM);
-        //iduo.data.setUIValue('BRSTSFYBS', data[0].BRSTSFYBS);
-        //iduo.data.setUIValue('BRHGTSHDJSSSRNSFQGYXDD', data[0].BRHGTSHDJSSSRNSFQGYXDD);
-        iduo.data.setUIValue('MQBRDSJZT', data[0].MQBRDSJZT);
-        iduo.data.setUIValue('MQBRGLZT', data[0].MQBRGLZT);
-        iduo.data.setUIValue('MQJRDSJZT', data[0].MQJRDSJZT);
-        iduo.data.setUIValue('JRSFZXHLX', data[0].JRSFZXHLX);
-        iduo.data.setUIValue('NSQDJKMYSSSM', data[0].NSQDJKMYSSSM);
-        iduo.data.setUIValue('KXHZSD', data[0].KXHZSD);
-        iduo.data.setUIValue('DTDXQK', data[0].DTDXQK);
-        iduo.data.setUIValue('BRTWZK', data[0].BRTWZK);
-        iduo.data.setUIValue('XXDZ', data[0].XXDZ);
-        iduo.data.setUIValue('SFHSJC', data[0].SFHSJC);}})'''
-            Q7 = self.__get_element_by_xpath(
-                '//*[@id="iform"]/div[1]/div[3]/form/div[14]/div/div/div[2]/div/div/div/div[1]/div/div[6]/div/i')  # 本人身体是否有不适
-            Q7.click()
-            Q8 = self.__get_element_by_xpath(
-                '//*[@id="iform"]/div[1]/div[3]/form/div[16]/div/div/div[2]/div/div/div/div[1]/div/div[3]/div')  # 本人7日内是否去过以下地点
-            Q8.click()
-            time.sleep(1)
+            time.sleep(5)
+            js = '''
+            iduo.http.parseDataSource("SELECT_XSJKDK$"+iduo.user.Sys_UserId).then(data => {for (i in data[0]){
+                try{if(i==='CURRENTTIME'||i==='GUID'){continue}
+                    iduo.data.setUIValue(i,data[0][i]);
+                }
+                catch(ex){
+                    iduo.data.setUIValue(i,[`${data[0][i]}`])
+                }
+}})'''
             self.__client.execute_script(js)
             time.sleep(5)
-            stateMent = self.__get_element_by_xpath(
-                '/html/body/div[1]/div[2]/div[1]/div[3]/form/div[39]/div/div/div[2]/div/div/div/div[1]/div/div/div')
-            stateMent.click()
             submit_button = self.__get_element_by_xpath(
                 '/html/body/div[1]/div[2]/div[1]/div[4]/div/button[1]')
             submit_button.click()
