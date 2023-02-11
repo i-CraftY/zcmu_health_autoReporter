@@ -17,6 +17,7 @@
 5. 根据需求修改对应题目xpath
 ## 2022/12/31
 跟进新打卡系统认证,完善数据获取，使用js进行填表
+## 若打卡失败则表格更新，请进行手动打卡一次
 
  ## ❗❗❗请遵守学校防疫政策，出现异常请关闭脚本手动进行打卡❗❗❗
  ## ⚠⚠⚠   仅供学习交流使用，请于下载后24小时内删除   ⚠⚠⚠
@@ -66,9 +67,9 @@
  ![](./assets/success.png)
 
  ## 鸣谢
- [浙江理工大学自动健康申报（新版）](https://github.com/typenoob/zstu_report)(大部分代码，打卡系统为杭州某多)
+ [浙江理工大学自动健康申报（新版）](https://github.com/typenoob/zstu_report)
   
- [HDU-AutoPunch 杭州电子科技大学自动健康打卡脚本](https://github.com/YeQiuO/HDU_AUTO_PUNCH)(Github Action环境)
+ [HDU-AutoPunch 杭州电子科技大学自动健康打卡脚本](https://github.com/YeQiuO/HDU_AUTO_PUNCH)
 
  [浙大城市学院健康打卡脚本](https://github.com/chansyawn/zucc-auto-check)
 
@@ -78,13 +79,6 @@
  
 
 
-# TO DO
-> 继续借鉴各位大佬的经验，用仅有的能力更新
-
-* Docker环境补齐
-* 简化代码，使用循环选择元素
-* ✅多用户登录 
-* ✅多用户推送
 
 
 # Coding with ❤
